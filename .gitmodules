@@ -1,0 +1,6 @@
+[submodule "link-shortener-backend"]
+	path = link-shortener-backend
+	url = https://github.com/watertrainer/link-shortener-backend
+[submodule "link-shortener-frontend"]
+	path = link-shortener-frontend
+	url = https://github.com/watertrainer/link-shortener-frontend
