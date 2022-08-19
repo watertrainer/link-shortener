@@ -1,0 +1,10 @@
+/link-shortener-frontend/.angular
+/link-shortener-frontend/.vscode
+/link-shortener-frontend/node_modules
+/link-shortener-frontend/dist
+/link-shortener-frontend/coverage
+/link-shortener-frontend/coverage
+/link-shortener-backend/*
+!/link-shortener-backend/server.js
+!/link-shortener-backend/requestHandler.js
+!/link-shortener-backend/package.json
