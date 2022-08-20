@@ -2,7 +2,7 @@ FROM node AS builder
 WORKDIR /build
 COPY . .
 WORKDIR /build/link-shortener-frontend
-RUN npm ci && npm i -g @angular/cli
+RUN npm i && npm i -g @angular/cli
 RUN ng build --configuration production --base-href /home/ --output-path ./../link-shortener-backend/dist
 WORKDIR /build/link-shortener-backend
 RUN npm install --omit=dev
