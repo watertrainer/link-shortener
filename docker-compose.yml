@@ -13,34 +13,25 @@ services:
 
     environment:
       PGUSER: postgres
-      PGPASSFILE:
+      #you probably want to change this
+      PGPASSWORD: postgres
       PGHOST: db
-      # Change this if you don't use the shortl_setup_db.sql
+      # Change this if you don't use the create_table.sql
       PGDATABASE: shortldb
-
-    # Overrides default command so things don't shut down after the process ends.
-    command: sleep infinity
-
-    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
-    network_mode: service:db
-    # Uncomment the next line to use a non-root user for all processes.
-    # user: node
-
-    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
-    # (Adding the "ports" property to this file will not forward from a Codespace.)
+    ports:
+      - 8080:3000	
 
   db:
     image: postgres:latest
     restart: unless-stopped
     volumes:
-      - create_table.sql:/docker-entrypoint-initdb.d/create_table.sql
+      - ./create_table.sql:/docker-entrypoint-initdb.d/create_table.sql
       - postgres-data:/var/lib/postgresql/data
     environment:
+      #you probably want to change this
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: shortldb
-    # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
-    # (Adding the "ports" property to this file will not forward from a Codespace.)
 
 volumes:
   postgres-data:
